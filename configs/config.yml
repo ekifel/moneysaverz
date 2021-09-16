@@ -1,0 +1,16 @@
+app:
+  name: moneysaverz
+  version: 0.0.1
+
+mongo:
+  databaseName: moneysaverz
+  
+http:
+  port: 8000
+  maxHeaderBytes: 1
+  readTimeout: 10s
+  writeTimeout: 10s
+
+auth:
+  accessTokenTTL: 2h
+  refreshTokenTTL: 720h 
