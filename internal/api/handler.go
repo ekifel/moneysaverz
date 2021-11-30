@@ -9,8 +9,6 @@ import (
 	"github.com/ekifel/moneysaverz/internal/service"
 	"github.com/ekifel/moneysaverz/pkg/auth"
 	"github.com/gin-gonic/gin"
-	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
 	"github.com/swaggo/swag/example/basic/docs"
 )
 
@@ -38,10 +36,6 @@ func (h *Handler) Init(cfg *config.Config) *gin.Engine {
 	docs.SwaggerInfo.Host = fmt.Sprintf("%s:%s", cfg.HTTP.Host, cfg.HTTP.Port)
 	if cfg.Environment != config.EnvLocal {
 		docs.SwaggerInfo.Host = cfg.HTTP.Host
-	}
-
-	if cfg.Environment != config.Prod {
-		router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	}
 
 	// Init router
